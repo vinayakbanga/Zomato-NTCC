@@ -19,4 +19,14 @@ open street map
 authrntication 
 jwt json web token used for authentication and authorisation
 
+API planning
+authentication
+foods
+restaurants
+Menu
+order
+payments->razor payments
+reviews
+user
+image
 
