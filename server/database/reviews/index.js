@@ -13,26 +13,19 @@ const ReviewSchema = new mongoose.Schema({
     type: mongoose.Types.ObjectId,
     ref : "Restaurants",
 },
-   ReviewDetails :[
+   rating:{ type:Number,required:true },
+   reviewText:{
+       type:String , required:true
+
+   },
+   photos:[
        {
-        food:{
-            type: mongoose.Types.ObjectId,
-            ref : "Foods",
-        },
-        quantitiy:{
-            type:Number, required:true
-        },
-        paymode : {type:String,required:true},
-        status : {type:String,default:"Placed"},
-        paymentDetails:{
-            itemTotal:{type:Number,required :true},
-            promo:{type:Number,required:true},
-            tax:{type:Number,required:true},
-        }
-
-
+           type:mongoose.Types.ObjectId,
+           ref:"Images"
        }
-
    ]
+
+
+
 })
 export const ReviewModel= mongoose.model("Reviews",ReviewSchema);
