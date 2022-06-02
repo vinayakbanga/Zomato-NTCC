@@ -21,30 +21,28 @@ method post
 */ 
 Router.post("/signup", async (req,res)=>{
     try {
-        const { email,password,fullName, phoneNumber }= req.body.credentials;
+        // const { email,password,fullName, phoneNumber }= req.body.credentials;
 
         //check weather user exits
-        const checkUserByEmail = await UserModel.findOne({ email });
-        const checkUserByPhone = await UserModel.findOne({ phoneNumber });
+        await UserModel.findByEmailAndPhone(req.body.credentials);
+        const newUser = await UserModel.create(req.body.credentials);
 
-        if(checkUserByEmail || checkUserByPhone){
-            return res.json({error:"User already exists"})
-        }
 
-        //hashing the pass
-        const bcryptSalt = await bcrypt.genSalt(8);
+        // //hashing the pass
+        // const bcryptSalt = await bcrypt.genSalt(8);
 
-        const hashedPassword = await bcrypt.hash(password,bcryptSalt);
+        // const hashedPassword = await bcrypt.hash(password,bcryptSalt);
 
-        //save to db
+        // //save to db
 
-        await UserModel.create({
-            ...req.body.credentials,
-            password:hashedPassword
-        });
+        // await UserModel.create({
+        //     ...req.body.credentials,
+        //     password:hashedPassword
+        // });
 
         //genrate JWT auth token
-        const token =jwt.sign({user:{fullname , email}},"ZomatoAPP");
+        // const token =jwt.sign({user:{fullname , email}},"ZomatoAPP");
+        const token=newUser.generateJwtToken();
 
         return res.status(200).json({token,status:"sucess"})
         
@@ -55,5 +53,13 @@ Router.post("/signup", async (req,res)=>{
         
     }
 })
+/*
+route /signin
+des signin with email and pass
+params none
+acess puclic 
+method post
+*/
+
 
 export default Router;
