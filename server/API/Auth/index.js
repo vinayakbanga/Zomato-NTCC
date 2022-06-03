@@ -94,7 +94,7 @@ Router.get(
     passport.authenticate("google", { failureRedirect: "/" }),
     (req, res) => {
       return res.redirect(
-        `http://localhost:3000/google/${req.session.passport.user.token}`
+        `http://localhost:4000/google/${req.session.passport.user.token}`
       );
     }
   );

@@ -13,7 +13,9 @@ import googleAuthConfig from "./config/google.config"
 //microservice routs
 
 import Auth from "./API/Auth"
-
+import Restaurant from "./API/Restaurant"
+import Foods from "./API/Food"
+import Image from "./API/Image"
 
 //db connection
 
@@ -35,9 +37,12 @@ zomato.use(cors());
 
 //application routes
 zomato.use("/auth",Auth);
-
+zomato.use("/restaurant",Restaurant);
+zomato.use("/food",Foods);
+zomato.use("/image",Image);
 
 zomato.get("/",(req,res)=> {
+    console.log(process.env.GOOGLE_CLIENT_ID);
     res.json({messagr:"setupsucess"})
 })
 
