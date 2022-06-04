@@ -7,6 +7,9 @@ import jwt from "jsonwebtoken";
 //Models
 import { UserModel } from "../../database/user";
 import passport from "passport";
+//validation
+import { ValidateSignIn, ValidateSignUp } from "../../Validation/auth";
+
 
 const Router =express.Router();
 
@@ -21,7 +24,9 @@ acess puclic
 method post
 */ 
 Router.post("/signup", async (req,res)=>{
-    try {
+  try {
+      await ValidateSignUp(req.body.credentials);
+      
         // const { email,password,fullName, phoneNumber }= req.body.credentials;
 
         //check weather user exits
@@ -48,6 +53,7 @@ method post
 */
 Router.post("/signin", async (req,res)=>{
     try {
+      await ValidateSignIn(req.body.credentials);
         // const { email,password,fullName, phoneNumber }= req.body.credentials;
 
         //check weather user exits
