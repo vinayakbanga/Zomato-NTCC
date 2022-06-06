@@ -13,7 +13,7 @@ const Router = express.Router();
   Method    GET  
   */
 
-  Router.get("/:id",async(req,res)=>{
+  Router.get("/:id",passport.authenticate("jwt",{session:false}),async(req,res)=>{
    try {
        const {_id} = req.params;
        const getOrders= await OrderModel.findOne({user:_id});
