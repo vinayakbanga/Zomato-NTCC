@@ -1,13 +1,19 @@
 import React from "react";
 
 //components
-
+import Navbar from "../components/Navbar";
 const HomeLayout =(props)=>{
-    return <>
-        
-    Home HomeLayout<br/>
-
+    return (
+    <>
+     <Navbar/>
+    <div className="container mx-auto px-4 lg:px-20">
     {props.children}
+
+    </div>
+        
+    
+
     </>
+    )
 };
 export default HomeLayout;
