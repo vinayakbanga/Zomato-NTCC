@@ -69,48 +69,54 @@ const MobileTabs=()=>{
 }
 
 const LargeTab =()=>{
+    const [ allTypes, setAllTypes] =useState([
+        {
+            id:"Delivery",
+            image:"https://b.zmtcdn.com/data/o2_assets/c0bb85d3a6347b2ec070a8db694588261616149578.png",
+            name:"Delivery",
+            color:"yellow",
+
+        },
+        {
+            id:"Dining",
+            image:"https://b.zmtcdn.com/data/o2_assets/30fa0a844f3ba82073e5f78c65c18b371616149662.png",
+            name:"Dining Out",
+            color:"blue"
+
+        },
+        {
+            id:"NightLife",
+            image:"https://b.zmtcdn.com/data/o2_assets/855687dc64a5e06d737dae45b7f6a13b1616149818.png",
+            name:"Night Life",
+            color:"purple"
+
+        },
+        {
+            id:`Delivery`,
+            image:"https://b.zmtcdn.com/data/o2_assets/855687dc64a5e06d737dae45b7f6a13b1616149818.png",
+            name:"Delivery",
+
+        },
+    ])
+    const { type } = useParams();
     return (
         <>
         <div className="hidden lg:flex gap-14 container px-20 mx-auto">
-            <div className="flex items-center gap-2">
-                <div className="w-14 h-14 border-2 rounded-full p-1 ">
-                    
-                    <img src="https://b.zmtcdn.com/data/o2_assets/c0bb85d3a6347b2ec070a8db694588261616149578.png"
-                    alt="delivery "
-                    className="w-full h-full"/>
-                </div>
-                <h3 className="text-lg text-grey-700 font-semibold">Delivery</h3>
-            </div>
 
-            <div className="flex items-center gap-2">
-                <div className="w-14 h-14 border-2 rounded-full p-1 ">
+        {allTypes.map((items)=>(
+             <Link to={`/${items.id}`}>
+             <div className={`flex items-center gap-2 pb-2 transition duration-700 ease-in-out ${type === items.id ? "border-b-2 border-zomato-400" : ""}`} >
+                <div className={`w-14 h-14 border-2 bg-${type === items.id ? items.color : "gray"}-200 rounded-full p-1`} >
                     
-                    <img src="https://b.zmtcdn.com/data/o2_assets/30fa0a844f3ba82073e5f78c65c18b371616149662.png"
-                    alt="dining "
-                    className="w-full h-full"/>
+                    <img src={items.image}
+                    alt={items.id}
+                    className={type === items.id ? "w-full h-full  " : "w-full h-full filter grayscale"}/>
                 </div>
-                <h3 className="text-lg text-grey-700 font-semibold">Dining</h3>
+                <h3 className="text-lg text-grey-700 font-semibold">{items.name}</h3>
             </div>
+             </Link>
+         ))}
 
-            <div className="flex items-center gap-2">
-                <div className="w-14 h-14 border-2 rounded-full p-1 ">
-                    
-                    <img src="https://b.zmtcdn.com/data/o2_assets/855687dc64a5e06d737dae45b7f6a13b1616149818.png"
-                    alt="Night Life "
-                    className="w-full h-full"/>
-                </div>
-                <h3 className="text-lg text-grey-700 font-semibold">Delivery</h3>
-            </div>
-
-            <div className="flex items-center gap-2">
-                <div className="w-14 h-14 border-2 rounded-full p-1 ">
-                    
-                    <img src="https://b.zmtcdn.com/data/o2_assets/c0bb85d3a6347b2ec070a8db694588261616149578.png"
-                    alt="delivery "
-                    className="w-full h-full"/>
-                </div>
-                <h3 className="text-lg text-grey-700 font-semibold">Delivery</h3>
-            </div>
              
         </div>
         
