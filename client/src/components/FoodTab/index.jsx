@@ -1,32 +1,69 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams,Link } from "react-router-dom";
+
 import {BsBag} from "react-icons/bs"
 import {IoFastFood} from "react-icons/io5"
 import {BiDrink} from "react-icons/bi"
 
 const MobileTabs=()=>{
+    const [ allTypes, setAllTypes] =useState([
+        {
+            id:"Delivery",
+            icon:<BsBag/>,
+            name:"Delivery",
+            isActive:false,
+
+        },
+        {
+            id:"Dining",
+            icon:<IoFastFood/>,
+            name:"Dining Out",
+            isActive:false,
+
+        },
+        {
+            id:"NightLife",
+            icon:<BiDrink/>,
+            name:"Night Life",
+            isActive:false,
+
+        },
+        {
+            id:`${Date.now()}di`,
+            icon:<BsBag/>,
+            name:"Delivery",
+            isActive:false,
+
+        },
+    ])
+    const { type } = useParams();
+    // useEffect(()=>{
+    //     if(type){
+    //         const updateTypes = allTypes.map((item) =>{
+    //            if(item.id == type){
+    //                return {...item,isActive:true};
+    //            } 
+    //            return item;
+    //         });
+
+    //         setAllTypes(updateTypes);
+    //     }
+    // },[type]);
+
+    
+
+
     return(
         <>
-        <div className="lg:hidden bg-white shadow-lg p-3 fixed bottom-0 z-10 w-full flex  justify-around text-gray-500">
-        <div className="flex flex-col items-center text-xl">
-        <BsBag/>
-        <h5 className="text-sm">Delivery</h5>
-
-        </div>
-        <div className="flex flex-col items-center text-xl">
-        <IoFastFood/>
-        <h5 className="text-sm">Dining out</h5>
-
-        </div>
-        <div className="flex flex-col items-center text-xl">
-        <BiDrink/>
-        <h5 className="text-sm">Night life</h5>
-
-        </div>
-        <div className="flex flex-col items-center text-xl">
-        <BsBag/>
-        <h5 className="text-sm">Delivery</h5>
-
-        </div>
+        <div className="lg:hidden bg-white shadow-lg p-3 pt-0 fixed bottom-0 z-10 w-full flex  justify-around text-gray-500 border-t-2">
+         {allTypes.map((items)=>(
+             <Link to={`/${items.id}`}>
+             <div className={type === items.id ? "flex flex-col items-center text-xl text-zomato-400 border-t-2 border-zomato-200 pt-3" :"flex flex-col items-center text-xl pt-3"}>
+                 {items.icon}
+                 <h5 className="text-sm">{items.name}</h5>
+             </div>
+             </Link>
+         ))}
 
 
 
