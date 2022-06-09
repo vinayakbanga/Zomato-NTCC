@@ -11,28 +11,24 @@ const MobileTabs=()=>{
             id:"Delivery",
             icon:<BsBag/>,
             name:"Delivery",
-            isActive:false,
 
         },
         {
             id:"Dining",
             icon:<IoFastFood/>,
             name:"Dining Out",
-            isActive:false,
 
         },
         {
             id:"NightLife",
             icon:<BiDrink/>,
             name:"Night Life",
-            isActive:false,
 
         },
         {
             id:`${Date.now()}di`,
             icon:<BsBag/>,
             name:"Delivery",
-            isActive:false,
 
         },
     ])
