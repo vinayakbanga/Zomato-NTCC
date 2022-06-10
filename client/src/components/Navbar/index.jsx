@@ -95,7 +95,7 @@ const LargeNav=()=>{
 const Navbar =()=>{
     return(
         <>
-        <nav className="p-4 flex bg-white shadow-md w-full items-center">
+        <nav className="p-4 flex bg-white  w-full items-center">
             <MobileNav/>
             <MediumNav/>
         </nav>
