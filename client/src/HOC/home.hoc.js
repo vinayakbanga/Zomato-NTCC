@@ -16,9 +16,13 @@ const HomeLayoutHOC = ({component: Component, ...rest}) => {
            <HomeLayout>
             <Component {...rest} />
            </HomeLayout>
+           
          )
+
          }
+         
        />
+       <hr/>
       </>
     );
   };

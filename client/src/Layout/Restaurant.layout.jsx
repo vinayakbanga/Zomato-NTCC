@@ -7,7 +7,8 @@ import { TiStarOutline } from 'react-icons/ti';
 import RestaurantNavbar from "../components/Navbar/restaurantNavbar"
 import ImageGrid from '../components/restaurant/ImageGrid';
 import Restaurantinfo from '../components/restaurant/Restaurantinfo';
-
+import TabContainer from '../components/restaurant/Tabs';
+// TabContainer
 const RestaurantLayout = () => {
 
 
@@ -34,6 +35,7 @@ const RestaurantLayout = () => {
             <button className='flex items-center gap-3 text-zomato-400 px-4 py-2 border border-zomato-400 rounded hover:text-white hover:bg-zomato-400'> <TiStarOutline/>Add review</button>
 
         </div>
+        <TabContainer/>
     
     </div>
 
