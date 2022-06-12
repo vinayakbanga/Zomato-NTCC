@@ -40,6 +40,9 @@ function App() {
         component={Temp}
       />
       <RestaurantLayoutHOC path="/restaurant/:id/menu" exact component={Temp} />
+      
+      <RestaurantLayoutHOC path="/restaurant/:id/reviews" exact component={Temp} />
+      <RestaurantLayoutHOC path="/restaurant/:id/photos" exact component={Temp} />
     </>
   );
 }

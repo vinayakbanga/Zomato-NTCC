@@ -17,8 +17,8 @@ const Tab=(props)=>{
     //     <h3 className="text-lg md:text-xl">{props.title}</h3>
     //   </div>
     <Link to={`/restaurant/${id}/${props.route}`}>
-        <div className={`text-${props.isActive ? `zomato` : `gray`}-500 font-medium`}>
-            <h3>{props.title}</h3>
+        <div className={`text-${props.isActive ? `zomato` : `gray`}-500 font-regular   ${props.isActive ? `border-b-2 border-zomato-400  `  : ``}  `} >
+            <h3 className='text-lg md:text-2xl'>{props.title}</h3>
         </div>
         </Link>
     )
@@ -55,7 +55,7 @@ const TabContainer = (props) => {
 }]
   return (
     <>
-    <div className="flex items-center gap-3 md:gap-4 overflow-x-scroll">
+    <div className="flex items-center pb-4 gap-3 md:gap-4 overflow-x-scroll border-b-2 ">
        {tabs.map((tab)=>(
         <Tab {...tab} key={`123${tab.route}`}/>
        ))}
