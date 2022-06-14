@@ -13,6 +13,7 @@ import Home from "./Page/Home";
 import Overview from "./Page/Restaurant/Overview";
 
 import Temp from "./components/temp";
+import OrderOnline from "./Page/Restaurant/OrderOnline";
 
 
 function App() {
@@ -43,7 +44,7 @@ function App() {
       <RestaurantLayoutHOC
         path="/restaurant/:id/order-online"
         exact
-        component={Overview}
+        component={OrderOnline}
       />
       <RestaurantLayoutHOC path="/restaurant/:id/menu" exact component={Temp} />
       
