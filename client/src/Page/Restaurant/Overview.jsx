@@ -4,12 +4,14 @@ import { Link, useParams } from 'react-router-dom'
 import Slider from 'react-slick'
 import { NextArrow, PrevArrow } from '../../components/CarousalArrow'
 import ReactStars from "react-rating-stars-component";
+
 // /component
 import MenuCollection from '../../components/restaurant/MenuCollection'
 import MenuresturantCard from '../../components/restaurant/MenuresturantCard'
 import ReviewCard from '../../components/restaurant/Reviews/reviewCard'
+
 // Map
-import { MapContainer, TileLayer, useMap, Marker,Popup } from 'react-leaflet'
+import Mapview from '../../components/restaurant/Mapview'
 
 
 const Overview = () => {
@@ -118,6 +120,14 @@ const Overview = () => {
             />
             
           </div>
+          <div className='my-4 md:hidden flex felx-col gap-4 ' >
+          <Mapview
+           title="Pizza Villa" 
+           phno="0914574xxx"
+            mapLocation={[28.394623850378174, 77.30227737451017]} 
+            address="98V2+3GF, New Industrial Town, Faridabad, Haryana 121001"
+            />
+          </div>
           <div className='my-4 flex flex-col gap-4'>
             <ReviewCard/>
             <ReviewCard/>
@@ -126,8 +136,13 @@ const Overview = () => {
           </div>
        </div>
        
-       <aside style={{height:"fit-content"}} className='hidden rounded-xl md:block md:w-4/12 sticky top-2  p-10 shadow-md '>
-        <div>
+       <aside style={{height:"fit-content"}} className='hidden rounded-xl md:flex md:w-4/12 sticky top-2  p-10 shadow-md flex-col  gap-3 '>
+        
+        <Mapview title="Pizza Villa" phno="0914574xxx" mapLocation={[28.394623850378174, 77.30227737451017]} address="98V2+3GF, New Industrial Town, Faridabad, Haryana 121001"
+        />
+        
+        
+        {/* <div>
        <h4 className="text-xg font-medium">
               call
             </h4>
@@ -145,12 +160,18 @@ const Overview = () => {
                 />
                 <Marker position={[28.394623850378174, 77.30227737451017]}>
                   <Popup>
-                    A pretty CSS3 popup. <br /> Easily customizable.
+                    Pizza villa
                   </Popup>
                 </Marker>
               </MapContainer>
             </div>
-            </div>
+            <p>
+            98V2+3GF, New Industrial Town, Faridabad, Haryana 121001
+            </p>
+            <button className=' flex items-center px-3 py-2 my-1 text-gray-700 border rounded-lg'>
+            <FaDirections/>Direction
+            </button>
+            </div> */}
               </aside>
     </div>
    </>
