@@ -3,15 +3,13 @@ import { IoMdArrowDropright } from 'react-icons/io'
 import { Link, useParams } from 'react-router-dom'
 import Slider from 'react-slick'
 import { NextArrow, PrevArrow } from '../../components/CarousalArrow'
-// NextArrow
-// PrevArrow
-// IoMdArrowDroprightr
-
+import ReactStars from "react-rating-stars-component";
 // /component
 import MenuCollection from '../../components/restaurant/MenuCollection'
 import MenuresturantCard from '../../components/restaurant/MenuresturantCard'
-
-// MenuCollection
+import ReviewCard from '../../components/restaurant/Reviews/reviewCard'
+// Map
+import { MapContainer, TileLayer, useMap, Marker,Popup } from 'react-leaflet'
 
 
 const Overview = () => {
@@ -20,7 +18,7 @@ const Overview = () => {
     arrows:true,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
     nextArrow:<NextArrow/>,
     prevArrow:<PrevArrow/>,
@@ -28,7 +26,7 @@ const Overview = () => {
         {
           breakpoint: 1024,
           settings: {
-            slidesToShow: 4,
+            slidesToShow: 3,
             slidesToScroll: 1,
             infinite: true,
             
@@ -37,7 +35,7 @@ const Overview = () => {
         {
           breakpoint: 768,
           settings: {
-            slidesToShow: 3,
+            slidesToShow: 2,
             slidesToScroll: 1,
             initialSlide: 2
           }
@@ -51,10 +49,13 @@ const Overview = () => {
         }
       ]
   };
+  const ratingChanged = (newRating) => {
+    console.log(newRating);
+  };
   return (
     <>
     <div className='flex flex-col md:flex-row'>
-       <div className='w-full  p-10  '>
+       <div className='w-full md:w-8/12  p-10  '>
        <h2 className='font-semibold text-lg md:text-xl my-4'>About This Place</h2>
        <div className='flex justify-between items-center'>
         <h4 className='text-lg font-medium'>Menu</h4>
@@ -94,6 +95,9 @@ const Overview = () => {
           <MenuresturantCard
           image="https://b.zmtcdn.com/data/pictures/chains/5/18711475/4be376adb66b75764946d00a7dcf9991_featured_v2.jpg?output-format=webp"
           title="tea"/>
+          <MenuresturantCard
+          image="https://b.zmtcdn.com/data/pictures/chains/5/18711475/4be376adb66b75764946d00a7dcf9991_featured_v2.jpg?output-format=webp"
+          title="tea"/>
           </Slider>
           {/* <MenuresturantCard
           image="https://b.zmtcdn.com/data/pictures/chains/5/18711475/4be376adb66b75764946d00a7dcf9991_featured_v2.jpg?output-format=webp"
@@ -102,9 +106,52 @@ const Overview = () => {
           image="https://b.zmtcdn.com/data/pictures/chains/5/18711475/4be376adb66b75764946d00a7dcf9991_featured_v2.jpg?output-format=webp"
           title="tea"/> */}
           </div>
-       </div>
-       <aside style={{height:"fit-content"}} className='hidden md:block md:w-2/5 sticky top-2  p-10 '></aside>
+          <div className="my-4">
+            <h4 className="text-lg font-medium">
+              Rate your delivery experience
+            </h4>
+            <ReactStars
+              count={5}
+              onChange={ratingChanged}
+              size={24}
+              activeColor="#ffd700"
+            />
+            
+          </div>
+          <div className='my-4 flex flex-col gap-4'>
+            <ReviewCard/>
+            <ReviewCard/>
+            <ReviewCard/>
 
+          </div>
+       </div>
+       
+       <aside style={{height:"fit-content"}} className='hidden rounded-xl md:block md:w-4/12 sticky top-2  p-10 shadow-md '>
+        <div>
+       <h4 className="text-xg font-medium">
+              call
+            </h4>
+              <h5 className='text-zomato-400 font-medium'>+9198574xxx</h5>
+              </div>
+              <div>
+              <h4 className="text-xg font-medium">
+              Direction
+            </h4>
+            <div className='w-full h-48'>
+            <MapContainer center={[28.394623850378174, 77.30227737451017]} zoom={13} scrollWheelZoom={false}>
+                <TileLayer
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                <Marker position={[28.394623850378174, 77.30227737451017]}>
+                  <Popup>
+                    A pretty CSS3 popup. <br /> Easily customizable.
+                  </Popup>
+                </Marker>
+              </MapContainer>
+            </div>
+            </div>
+              </aside>
     </div>
    </>
   )

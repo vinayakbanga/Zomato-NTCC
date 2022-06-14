@@ -4,6 +4,11 @@
 @tailwind utilities;
 
  
+.leaflet-container{
+  width: inherit;
+  height: inherit;
+}
+
 /* .slick-prev {
     left: 3% !important;
     z-index: 1;
