@@ -36,20 +36,7 @@ const OrderOnline = () => {
             price :"99",
             description:"Little muffin with a heart of chocolate! An all time classic and a serious all timer of a dessert!"
                 },
-                {
-                  image:"https://b.zmtcdn.com/data/dish_photos/71a/d68dd9042017af95875bdb396f85771a.jpg?fit=around|130:130&crop=130:130;*,*",
-              title:"Molten Lava Cake",
-              rating:4,
-              price :"99",
-              description:"Little muffin with a heart of chocolate! An all time classic and a serious all timer of a dessert!"
-                  },
-                  {
-                    image:"https://b.zmtcdn.com/data/dish_photos/71a/d68dd9042017af95875bdb396f85771a.jpg?fit=around|130:130&crop=130:130;*,*",
-                title:"Molten Lava Cake",
-                rating:4,
-                price :"99",
-                description:"Little muffin with a heart of chocolate! An all time classic and a serious all timer of a dessert!"
-                    }
+               
               
               ]} /> 
                  
