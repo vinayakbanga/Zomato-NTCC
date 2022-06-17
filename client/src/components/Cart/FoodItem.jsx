@@ -14,7 +14,7 @@ const FoodItem = (props) => {
             </small>
             <div className='bg-zomato-400 text-white rounded px-1 flex items-center gap-1' >
                 <button className='bg-zomato-400 text-white rounded px-1'>-</button>
-                <small >2</small>
+                <small >{props.quantity}</small>
                 <button className='bg-zomato-400 text-white rounded px-1'>+</button>
             </div>
             </div> 
