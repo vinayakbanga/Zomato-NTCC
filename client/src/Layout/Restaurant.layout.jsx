@@ -1,5 +1,6 @@
 import React from 'react';
 import { TiStarOutline } from 'react-icons/ti';
+import CartConatiner from '../components/Cart/CartConatiner';
 // import { AiOutlineCamera } from 'react-icons/ai';
 // TiStarOutline
 
@@ -9,6 +10,7 @@ import ImageGrid from '../components/restaurant/ImageGrid';
 import Restaurantinfo from '../components/restaurant/Restaurantinfo';
 import TabContainer from '../components/restaurant/Tabs';
 // TabContainer
+// CartConatiner
 const RestaurantLayout = (props) => {
 
 
@@ -38,6 +40,7 @@ const RestaurantLayout = (props) => {
         <TabContainer/>
         {props.children}
     </div>
+        <CartConatiner/>
 
     </>
   )
