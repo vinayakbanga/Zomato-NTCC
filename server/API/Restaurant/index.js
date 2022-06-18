@@ -56,6 +56,15 @@ const Router = express.Router();
          
      }
  })
+
+//  Router.post("/new", passport.authenticate("jwt"), async (req, res) => {
+//     try {
+//       const newRetaurant = await RestaurantModal.create(req.body.retaurantData);
+//       return res.json({ restaurants: newRetaurant });
+//     } catch (error) {
+//       return res.status(500).json({ error: error.message });
+//     }
+//   });
 /*
   Route     /search
   Des       Get i restaurant details based on serach string
